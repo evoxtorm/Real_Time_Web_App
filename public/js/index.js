@@ -9,10 +9,10 @@ socket.on('connect', function () {
 //   text: 'Hey, this is important message'
 // });
 
-socket.emit('createMessage', {
-  from:'Hitesh',
-  text: 'We recieved your message'
-});
+// socket.emit('createMessage', {
+//   from:'Hitesh',
+//   text: 'We recieved your message'
+// });
 
 });
 
