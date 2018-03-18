@@ -28,3 +28,11 @@ socket.on('disconnect', function () {
 socket.on('newMessage', function (message) {
   console.log('New message', message);
 });
+
+
+socket.emit('createMessage', {
+  from: 'Hitesh',
+  text: 'hey'
+}, function (data) {
+  console.log('Got it', data);
+});
