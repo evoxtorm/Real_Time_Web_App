@@ -27,12 +27,28 @@ socket.on('disconnect', function () {
 
 socket.on('newMessage', function (message) {
   console.log('New message', message);
+  var li = jQuery('<li></li>');
+  li.text(`${message.from} : ${message.text}`);
+
+  jQuery('#messages').append(li);
 });
 
 
-socket.emit('createMessage', {
-  from: 'Hitesh',
-  text: 'hey'
-}, function (data) {
-  console.log('Got it', data);
+// socket.emit('createMessage', {
+//   from: 'Hitesh',
+//   text: 'hey'
+// }, function (data) {
+//   console.log('Got it', data);
+// });
+
+jQuery('#message-form').on('submit', function(event) {
+  event.preventDefault();
+  event.stopPropagation();
+
+  socket.emit('createMessage', {
+    form: 'User',
+    text: jQuery('[name=message]').val()
+  }, function () {
+
+  });
 });
