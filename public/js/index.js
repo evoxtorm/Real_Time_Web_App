@@ -43,10 +43,10 @@ socket.on('newMessage', function (message) {
 
 jQuery('#message-form').on('submit', function(event) {
   event.preventDefault();
-  event.stopPropagation();
+  // event.stopPropagation();
 
   socket.emit('createMessage', {
-    form: 'User',
+    from: 'User',
     text: jQuery('[name=message]').val()
   }, function () {
 
