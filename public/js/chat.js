@@ -18,7 +18,16 @@ function scrollBottom() {
 }
 
 socket.on('connect', function () {
-  console.log('connected to server');
+  //console.log('connected to server');
+  var params = jQuery.deparam(window.location.search);
+
+  socket.emit('join', params, function (err) {
+    if (err) {
+
+    } else {
+
+    }
+  });
 
 // socket.emit('createEmail', {
 //   to: 'evo@outlook.com',
