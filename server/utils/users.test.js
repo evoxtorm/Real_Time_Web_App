@@ -37,6 +37,36 @@ beforeEach(() => {
     expect(users.users).toEqual([user]);
   });
 
+  it('should remove a user', () => {
+    let userId = '1';
+    let user = users.removeUser(userId);
+
+    expect(user.id).toBe(userId);
+    expect(users.users.length).toBe(2);
+  });
+
+  it('should not remove the user', () => {
+    let userId = '10';
+    let user = users.removeUser(userId);
+
+    expect(user).toNotExist();
+    expect(users.users.length).toBe(3);
+  });
+
+  it('should not find the user', () => {
+    var userId = '21' ;
+    var user = users.getUser(userId);
+
+    expect(user).toNotExist();
+  });
+
+  it('should  find the user', () => {
+    var userId = '2' ;
+    var user = users.getUser(userId);
+
+    expect(user.id).toBe(userId);
+  });
+
   it('should return names of Node boys', () => {
     var userList = users.getUserList('Node boys');
 
