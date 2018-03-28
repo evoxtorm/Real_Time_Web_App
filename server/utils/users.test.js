@@ -5,6 +5,24 @@ const {Users} = require('./users');
 
 describe('Users', () => {
 
+var users;
+
+beforeEach(() => {
+  users = new Users();
+  users.users = [{
+    id: '1',
+    name: 'Lol',
+    room: 'Node boys'
+  }, {
+    id: '2',
+    name: 'Lol0',
+    room: 'Node girls'
+  }, {
+    id: '3',
+    name: 'Lolki',
+    room: 'Node boys'
+  }];
+});
 
   it('should add a new user', () => {
     var users = new Users();
