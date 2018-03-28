@@ -11,3 +11,5 @@ class Users {
     return user;
   }
 }
+
+module.exports = {Users};
