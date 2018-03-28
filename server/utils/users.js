@@ -10,6 +10,15 @@ class Users {
     this.users.push(user);
     return user;
   }
+  removeUser (id) {
+
+  }
+  getUser (id) {
+
+  }
+  getUserList (room) {
+    
+  }
 }
 
 module.exports = {Users};
