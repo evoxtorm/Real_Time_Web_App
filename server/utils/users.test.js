@@ -36,4 +36,10 @@ beforeEach(() => {
 
     expect(users.users).toEqual([user]);
   });
+
+  it('should return names of Node boys', () => {
+    var userList = users.getUserList('Node boys');
+
+    expect(userList).toEqual(['Lol', 'Lolki']);
+  });
 });
