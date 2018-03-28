@@ -20,10 +20,7 @@ io.on('connection', (socket) => {
   console.log('New user connected');
 
   // socket.emit from Admin to Welcome to the chat app
-  socket.emit('newMessage', generateMessage('Admin', 'Welcome to the chat app'));
 
-
-  socket.broadcast.emit('newMessage', generateMessage('Admin', 'New user joined'));
 
   // socket.emit('newEmail', {
   //   from: 'hola@gmail.com',
@@ -46,8 +43,19 @@ socket.on('join', (params, callback) => {
     callback('Name and room name are required');
   }
 
+
+  socket.join(params.room);
+
+
+
+  socket.emit('newMessage', generateMessage('Admin', 'Welcome to the chat app'));
+
+
+  socket.broadcast.to(params.room).emit('newMessage', generateMessage('Admin', `${params.name} has joined`));
   callback();
 });
+
+
 
 socket.on('createMessage', (message, callback) => {
   console.log('new Message',message );
